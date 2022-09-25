@@ -40,7 +40,6 @@
 
 @media (min-width: 768px) {
   .landing {
-    width: 100%;
     flex-direction: row;
   }
 

@@ -1,0 +1,60 @@
+.landing {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slogan {
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  color: var(--color-grey-1);
+}
+
+.slogan__title {
+  font-size: var(--title-size-2);
+}
+
+.slogan__title span {
+  color: var(--color-primary);
+}
+
+.slogan__message {
+  font-size: var(--title-size-1);
+  font-weight: bold;
+}
+
+.slogan__lt-message {
+  font-size: var(--title-size-4);
+}
+
+.ilustration {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .landing {
+    flex-direction: row;
+  }
+
+  .slogan {
+    width: 300px;
+    padding: 30px;
+  }
+
+  .ilustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ilustration img {
+    width: 80%;
+  }
+}

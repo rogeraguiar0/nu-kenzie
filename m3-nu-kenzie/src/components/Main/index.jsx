@@ -1,5 +1,7 @@
 import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
 import { FaTrash } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 
 function Main({ finances, setFinances, price, setPrice }) {
@@ -21,8 +23,30 @@ function Main({ finances, setFinances, price, setPrice }) {
         (description.value = description.value * -1)
     );
 
-    (description.desc !== "" || description.value !== "") &&
+    if (description.desc !== "" && description.value !== "") {
       setFinances([...finances, description]);
+      toast.success("Finança adicionada com sucesso!", {
+        position: "top-center",
+        autoClose: 1000,
+        theme: "colored",
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.error("Insira os dados corretamente!", {
+        position: "top-center",
+        autoClose: 1000,
+        theme: "colored",
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
 
     setDescription({
       desc: "",
@@ -33,6 +57,16 @@ function Main({ finances, setFinances, price, setPrice }) {
 
   function handleClose(elem) {
     setFinances(finances.filter((elemF) => elem !== elemF));
+    toast.success("Finança removida com sucesso!", {
+      position: "top-center",
+      autoClose: 1000,
+      theme: "colored",
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   const newFinances = finances.filter((elem) =>
@@ -43,6 +77,7 @@ function Main({ finances, setFinances, price, setPrice }) {
 
   return (
     <main>
+      <ToastContainer />
       <section className="description">
         <h3>Descrição</h3>
         <form onSubmit={handleSubmit}>

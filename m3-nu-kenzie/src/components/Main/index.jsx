@@ -25,7 +25,7 @@ function Main({ finances, setFinances, price, setPrice }) {
 
     if (description.desc !== "" && description.value !== "") {
       setFinances([...finances, description]);
-      toast.success("Fincança adicionada com sucesso!", {
+      toast.success("Finança adicionada com sucesso!", {
         position: "top-center",
         autoClose: 1000,
         theme: "colored",
@@ -57,7 +57,7 @@ function Main({ finances, setFinances, price, setPrice }) {
 
   function handleClose(elem) {
     setFinances(finances.filter((elemF) => elem !== elemF));
-    toast.success("Fincança removida com sucesso!", {
+    toast.success("Finança removida com sucesso!", {
       position: "top-center",
       autoClose: 1000,
       theme: "colored",

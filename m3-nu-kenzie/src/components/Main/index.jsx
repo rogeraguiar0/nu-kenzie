@@ -1,14 +1,14 @@
 import "./index.css";
-// import FaTrash from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 
 function Main({ finances, setFinances, price, setPrice }) {
-  const types = ["", "Entrada", "Saída"];
+  const types = ["Entrada", "Saída"];
 
   const [description, setDescription] = useState({
     desc: "",
     value: "",
-    type: types[0],
+    type: "Entrada",
   });
 
   const [filter, setFilter] = useState("");
@@ -21,12 +21,13 @@ function Main({ finances, setFinances, price, setPrice }) {
         (description.value = description.value * -1)
     );
 
-    description.value !== "" && setFinances([...finances, description]);
+    (description.desc !== "" || description.value !== "") &&
+      setFinances([...finances, description]);
 
     setDescription({
       desc: "",
       value: "",
-      type: types[0],
+      type: description.type,
     });
   }
 
@@ -151,7 +152,7 @@ function Main({ finances, setFinances, price, setPrice }) {
                         className="btn-ex"
                         type="button"
                       >
-                        x
+                        <FaTrash />
                       </button>
                     </div>
                   </div>
